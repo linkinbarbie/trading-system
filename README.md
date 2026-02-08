@@ -65,5 +65,11 @@ cat trades.log
   - `logger.*` writes `trades.log`
 - `CMakeLists.txt` build config
 
+## Troubleshooting
+- **`cmake: command not found`**: Install CMake (macOS: `brew install cmake`).
+- **`g++: command not found`**: Install Xcode Command Line Tools (`xcode-select --install`).
+- **Build fails on old compiler**: Ensure C++17 support (`g++ --version`). If needed, install a newer compiler via Homebrew.
+- **No trades in log**: Increase the `max_spread` value in `src/main.cpp` (e.g., `Simulator sim(0.20);`).
+
 ## Change Log
 - Initial runnable C++ trading-system demo.

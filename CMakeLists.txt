@@ -8,6 +8,9 @@ add_executable(trading_system
   src/main.cpp
   src/order_book.cpp
   src/market_data.cpp
+  src/strategy.cpp
+  src/simulator.cpp
+  src/logger.cpp
 )
 
 target_include_directories(trading_system PRIVATE src)

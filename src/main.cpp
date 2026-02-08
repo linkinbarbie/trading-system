@@ -1,12 +1,10 @@
-#include "order_book.hpp"
 #include "market_data.hpp"
+#include "simulator.hpp"
 
 #include <chrono>
 #include <iostream>
 
 int main() {
-  OrderBook book;
-
   std::vector<std::string> sample = {
       "A,B,101.25,50",
       "A,S,101.40,40",
@@ -18,20 +16,14 @@ int main() {
 
   auto start = std::chrono::high_resolution_clock::now();
   auto updates = MarketDataParser::parse_lines(sample);
-  for (const auto& u : updates) {
-    if (u.action == 'A') {
-      book.add(u.side, u.price, u.qty);
-    } else if (u.action == 'M') {
-      book.modify(u.side, u.price, u.qty);
-    } else if (u.action == 'C') {
-      book.cancel(u.side, u.price);
-    }
-  }
+  Simulator sim(0.10);
+  auto result = sim.run(updates);
   auto end = std::chrono::high_resolution_clock::now();
 
   auto elapsed_us = std::chrono::duration_cast<std::chrono::microseconds>(end - start).count();
 
-  std::cout << "Top of Book: " << book.top_of_book_string() << "\n";
   std::cout << "Processed " << updates.size() << " updates in " << elapsed_us << " us\n";
+  std::cout << "Simulated trades: " << result.trades << "\n";
+  std::cout << "Trades logged to trades.log\n";
   return 0;
 }

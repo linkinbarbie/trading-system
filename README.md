@@ -7,6 +7,8 @@ Tiny C++ trading-system demo that runs end-to-end.
 - Top-of-book view
 - Simple market data parser (CSV-like)
 - Basic latency/throughput metrics
+- Tiny simulator with a basic strategy
+- Trade logging to `trades.log`
 
 ## Build (CMake)
 ```bash

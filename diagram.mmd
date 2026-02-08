@@ -1,0 +1,14 @@
+flowchart LR
+  MD[Market Data] --> P[Parser]
+  P --> OB[Order Book]
+  OB --> TOB[Top-of-Book]
+  OB --> S[Strategy]
+  S --> SIM[Simulator]
+  SIM --> L[Trade Logger]
+  SIM --> M[Latency & Throughput Metrics]
+
+  classDef core fill:#E8F1FF,stroke:#2B5FD9,stroke-width:1px,color:#0B1A33;
+  classDef aux fill:#F5F7FA,stroke:#9AA4B2,stroke-width:1px,color:#2A2F36;
+
+  class MD,P,OB,S,SIM,L core;
+  class TOB,M aux;

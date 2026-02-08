@@ -64,6 +64,10 @@ cat trades.log
   - `simulator.*` runs updates + strategy
   - `logger.*` writes `trades.log`
 - `CMakeLists.txt` build config
+- `diagram.png` system diagram
+
+## Diagram
+![Trading System Diagram](diagram.png)
 
 ## Troubleshooting
 - **`cmake: command not found`**: Install CMake (macOS: `brew install cmake`).
